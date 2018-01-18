@@ -4,7 +4,9 @@
   "description": "per esame",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "passport-google": "^0.3.0",
+    "passport-google-oauth": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
