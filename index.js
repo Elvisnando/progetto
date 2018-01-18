@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-const lista= [
+var lista= [
     {
 		ID: 1,
         Dipartimento: "Matematica",
@@ -28,27 +28,13 @@ app.get('/',function(req,res){
 res.sendFile(__dirname + '/index.html');
 });
 
-app.post('/login',function(req,res){
-    var use = req.body.username;
-    var dip =  req.body.dips;
-    var not = req.body.nota;
-  //  res.send('ciaoooooooooooooooooooooooo');
-  var item = [{ID:cont, Dipartimento: dip, not }];
-  lista.push(item);
-  cont++;
-
-  
-  
-  res.send(use);
-  
-
-});
+//ecco il cam
 
 app.post('/inserisci',function(req,res){
     
     var dip =  req.body.dips;
     var not = req.body.nota;
-  var item = [{ID:cont, Dipartimento: dip, nota : not }];
+  var item = {ID:cont, Dipartimento: dip, nota : not };
   lista.push(item);
   cont++;
   res.send('Nota inserita con successo');
@@ -56,15 +42,15 @@ app.post('/inserisci',function(req,res){
 
 });
 
-
-
-
 app.post('/stampa',function(req,res){
-    var c =0;
 
-    
-    
-  res.send(lista);
+    var risultato ='';
+    var c = 0;
+    while(c<lista.length){
+        risultato = risultato + ' ' + lista[c].Dipartimento + lista[c].nota  +  '<br></br>';
+        c++;
+    }
+  res.send(risultato);
 
 });
 
