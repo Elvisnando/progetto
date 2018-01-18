@@ -17,6 +17,23 @@ var lista= [
 	},
    
 ];
+var amministratori= [
+    {
+		
+        nomeutente: "elvis",
+		pasword: "elvis"
+        
+    },
+    
+    {
+		
+        nomeutente: "endrit",
+		pasword: "endritnazifi"
+        
+	},
+
+   
+];
 
 
 
@@ -56,6 +73,30 @@ app.post('/stampa',function(req,res){
 });
 
 
+app.post('/logadmin',function(req,res){
+    var c=0;
+    var nome = req.body.fname;
+    var pasword = req.body.pass;
+    console.log(nome +" "+ pasword);
+
+    while(c<amministratori.length){
+
+        if(nome == amministratori[c].nomeutente && pasword == amministratori[c].pasword){
+
+            res.send("Acesso eseguito correttamente");
+            console.log("ci siamo");
+            break;
+        }
+        c++;
+    }
+    //window.alert("nome o pass errate");
+    res.sendFile(__dirname + '/utenten.html');
+
+  
+  
+});
+
+
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -63,4 +104,7 @@ app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
+
+
+
 
