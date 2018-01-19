@@ -67,7 +67,7 @@ app.post('/inserisci',function(req,res){
 
 });
 
-app.post('/stampa',function(req,res){
+/*app.post('/stampa',function(req,res){
 
     var risultato ='';
     var c = 0;
@@ -77,7 +77,7 @@ app.post('/stampa',function(req,res){
     }
   res.send(risultato);
 
-});
+});*/
 
 
 app.post('/logadmin',function(req,res){
@@ -89,7 +89,7 @@ app.post('/logadmin',function(req,res){
     var risultato ='';
     var t = 0;
     while(t<lista.length){
-        risultato = risultato + ' ' + lista[t].Dipartimento + lista[t].nota  +  '<br></br>';
+        risultato = risultato + ' ' + lista[t].Dipartimento + lista[t].nota  +  '\n ';
         t++;
     }
 
@@ -101,7 +101,7 @@ app.post('/logadmin',function(req,res){
 
         if(nome == amministratori[c].nomeutente && pasword == amministratori[c].pasword){
 
-            res.render('lista', {lista : risultato});
+            res.render('lista', {lista : lista});
             console.log("ci siamo");
             s=1;
             break;

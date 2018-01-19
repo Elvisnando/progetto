@@ -4,8 +4,30 @@
 
 
 <body>
+    <p>Tutte le note</p>
+
+  
+
+
+        <table>
+                <tr>
+                   <th>Dipartimeto</th><th>Nota</th>
+                </tr>
+             
+                <% for (var i = 0; i < lista.length;   i++) { %>
+                 <tr>
+                   <td><%= lista[i].Dipartimento%></td>
+                   <td><%= lista[i].nota %></td>
+                  
+                 </tr>    
+                <% } %>
+             </table>
+
+
     
-<h1><%= lista %></h1>
+    
+    
+   
 
     
 </body>
