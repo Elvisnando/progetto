@@ -4,6 +4,7 @@
   "description": "per esame",
   "main": "index.js",
   "dependencies": {
+    "ejs": "^2.5.7",
     "express": "^4.16.2",
     "passport-google": "^0.3.0",
     "passport-google-oauth": "^1.0.0"
@@ -13,5 +14,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "elvis",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elvisnando/progetto.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Elvisnando/progetto/issues"
+  },
+  "homepage": "https://github.com/Elvisnando/progetto#readme"
 }
