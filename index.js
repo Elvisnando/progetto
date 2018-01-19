@@ -54,7 +54,7 @@ app.post('/inserisci',function(req,res){
   var item = {ID:cont, Dipartimento: dip, nota : not };
   lista.push(item);
   cont++;
-  res.send('Nota inserita con successo');
+  res.sendFile(__dirname + '/notainserita.html');
   
   
 
@@ -95,9 +95,6 @@ app.post('/logadmin',function(req,res){
   
   
 });
-
-
-
 
 app.set('port', (process.env.PORT || 5000));
 
