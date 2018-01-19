@@ -1,11 +1,18 @@
 const express = require('express'),
     bodyParser = require('body-parser');
 
+
+
+
 const app = express();
 var cont =2;
 
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
+app.set('view engine','ejs');
 
 
 var lista= [
@@ -75,22 +82,36 @@ app.post('/stampa',function(req,res){
 
 app.post('/logadmin',function(req,res){
     var c=0;
+    var  s=0;
     var nome = req.body.fname;
     var pasword = req.body.pass;
     console.log(nome +" "+ pasword);
+    var risultato ='';
+    var t = 0;
+    while(t<lista.length){
+        risultato = risultato + ' ' + lista[t].Dipartimento + lista[t].nota  +  '<br></br>';
+        t++;
+    }
+
+
+
+
 
     while(c<amministratori.length){
 
         if(nome == amministratori[c].nomeutente && pasword == amministratori[c].pasword){
 
-            res.send("Acesso eseguito correttamente");
+            res.render('lista', {lista : risultato});
             console.log("ci siamo");
+            s=1;
             break;
         }
         c++;
     }
     //window.alert("nome o pass errate");
+    if(s==0){
     res.sendFile(__dirname + '/utenten.html');
+    }
 
   
   
