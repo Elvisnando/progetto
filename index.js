@@ -1,9 +1,11 @@
 const express = require('express'),
     bodyParser = require('body-parser');
+   
     
 
 
 var path = require('path');
+
 
 const app = express();
 var cont =2;
@@ -54,6 +56,8 @@ app.get('/',function(req,res){
 
 res.sendFile(__dirname + '/index.html');
 });
+
+
 
 //ecco il cam
 
