@@ -1,13 +1,13 @@
 const express = require('express'),
     bodyParser = require('body-parser');
    
-    
-
-
 var path = require('path');
 
 
 const app = express();
+
+
+
 var cont =2;
 
 
@@ -18,6 +18,49 @@ app.use(bodyParser.json());
 app.set(express.static(path.join(__dirname,'public')))
 
 app.set('view engine','ejs');
+
+const nodemailer = require('nodemailer');
+const xoauth2 = require('xoauth2');
+
+/*var trasporter = nodemailer.createTransport({
+    service : 'gmail',
+    auth: {
+        xoauth2: xoauth2.createXOAuth2Generator({
+            user: 'elvis.nazifi94@gmail.com',
+            clientId: '388814949827-jk62mj3slrdnkl9oenjrapcagm4pjnnl.apps.googleusercontent.com',
+            clientSecret: 'md2-J7V-Z7d3Il7HkvweG4bK',
+            refreshToken: '1/PO7EF76AUVsWJ7r9bu4qo1Xry9rog4iEUMMMfVSTXcc'
+        })
+    }
+
+
+});*/
+var trasporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+           user: 'elvis.nazifi94@gmail.com',
+           pass: 'avrillavigne1'
+       }
+   });
+
+var mailOption = {
+    from: 'Elvis <elvis.nazifi94@gmail.com>',
+    to: 'mirjeta.nazifi@gmail.com',
+    subject: 'Nuova nota inserita',
+    text: 'Controllare lista note'
+}
+
+trasporter.sendMail(mailOption, function(err,res) {
+    if(err){
+        console.log(err);
+    } else {
+        console.log('email mandata');
+    }
+
+});
+
+
+
 
 
 var lista= [
