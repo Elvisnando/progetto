@@ -76,14 +76,16 @@ var amministratori= [
     {
 		
         nomeutente: "elvis",
-		pasword: "elvis"
+        pasword: "elvis",
+        email: "nazifi70@gmail.com"
         
     },
     
     {
 		
         nomeutente: "endrit",
-		pasword: "endritnazifi"
+        pasword: "endritnazifi",
+        email: "mirjta.nazifi@gmail.com"
         
 	},
 
