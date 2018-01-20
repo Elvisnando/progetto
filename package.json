@@ -4,6 +4,7 @@
   "description": "per esame",
   "main": "index.js",
   "dependencies": {
+    "bootstrap": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "passport-google": "^0.3.0",

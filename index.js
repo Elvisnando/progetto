@@ -1,8 +1,9 @@
 const express = require('express'),
     bodyParser = require('body-parser');
+    
 
 
-
+var path = require('path');
 
 const app = express();
 var cont =2;
@@ -11,6 +12,8 @@ var cont =2;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//sett
+app.set(express.static(path.join(__dirname,'public')))
 
 app.set('view engine','ejs');
 
