@@ -22,7 +22,7 @@ app.set('view engine','ejs');
 const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 
-var trasporter = nodemailer.createTransport({
+/*var trasporter = nodemailer.createTransport({
     service : 'gmail',
     auth: {
         xoauth2: xoauth2.createXOAuth2Generator({
@@ -34,14 +34,15 @@ var trasporter = nodemailer.createTransport({
     }
 
 
-});
-/*var trasporter = nodemailer.createTransport({
+});*/
+
+var trasporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
            user: 'elvis.nazifi94@gmail.com',
            pass: 'avrillavigne1'
        }
-   });*/
+   });
 
 var mailOption = {
     from: 'Elvis <elvis.nazifi94@gmail.com>',
