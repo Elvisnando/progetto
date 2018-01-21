@@ -33,10 +33,9 @@ const xoauth2 = require('xoauth2');
         })
     }
 
-
 });*/
 
-var trasporter = nodemailer.createTransport({
+/*var trasporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
            user: 'elvis.nazifi94@gmail.com',
@@ -58,7 +57,7 @@ trasporter.sendMail(mailOption, function(err,res) {
         console.log('email mandata');
     }
 
-});
+});*/
 
 
 
@@ -86,7 +85,7 @@ var amministratori= [
 		
         nomeutente: "endrit",
         pasword: "endritnazifi",
-        email: "mirjta.nazifi@gmail.com"
+        email: "mirjeta.nazifi@gmail.com"
         
 	},
 
@@ -111,13 +110,41 @@ app.post('/inserisci',function(req,res){
     
     var dip =  req.body.dips;
     var not = req.body.nota;
-  var item = {ID:cont, Dipartimento: dip, nota : not };
-  lista.push(item);
-  cont++;
-  res.sendFile(__dirname + '/notainserita.html');
-  
-  
+    var item = {ID:cont, Dipartimento: dip, nota : not };
+     lista.push(item);
+     cont++;
+     var ca=0;
+     while(ca<amministratori.length){
 
+
+        var trasporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                   user: 'elvis.nazifi94@gmail.com',
+                   pass: 'avrillavigne1'
+               }
+           });
+        
+        var mailOption = {
+            from: 'Elvis <elvis.nazifi94@gmail.com>',
+            to: amministratori[ca].email,
+            subject: 'Nuova nota inserita',
+            text: 'Controllare lista note'
+        };
+        
+        trasporter.sendMail(mailOption, function(err,res) {
+            if(err){
+                console.log(err);
+            } else {
+                console.log('email mandata');
+            }
+        
+        });
+
+        ca++;
+     }
+
+     res.sendFile(__dirname + '/notainserita.html');
 });
 
 /*app.post('/stampa',function(req,res){
