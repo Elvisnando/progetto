@@ -4,13 +4,26 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            th, td {
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even){background-color: #f2f2f2}
+            </style>
 
 
     </head>
 
 
 <body>
-    <p>Tutte le note</p>
+    <p class="lead">Tutte le note</p>
 
   
 
@@ -29,13 +42,5 @@
                 <% } %>
              </table>
        </div>
-
-
-    
-    
-    
-   
-
-    
 </body>
 </html>

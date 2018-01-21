@@ -2,14 +2,8 @@ const express = require('express'),
     bodyParser = require('body-parser');
    
 var path = require('path');
-
-
 const app = express();
-
-
-
 var cont =2;
-
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,7 +12,6 @@ app.use(bodyParser.json());
 app.set(express.static(path.join(__dirname,'public')))
 
 app.set('view engine','ejs');
-
 const nodemailer = require('nodemailer');
 const xoauth2 = require('xoauth2');
 
@@ -92,17 +85,11 @@ var amministratori= [
    
 ];
 
-
-
-
-
 app.get('/',function(req,res){
 //res.send('sono il servr');
 
 res.sendFile(__dirname + '/index.html');
 });
-
-
 
 //ecco il cam
 
@@ -129,7 +116,7 @@ app.post('/inserisci',function(req,res){
             from: 'Elvis <elvis.nazifi94@gmail.com>',
             to: amministratori[ca].email,
             subject: 'Nuova nota inserita',
-            text: 'Controllare lista note'
+            text: 'Questa è la nuova nota inseira dal dipartimento di:'+item.Dipartimento+' '+item.nota
         };
         
         trasporter.sendMail(mailOption, function(err,res) {
@@ -159,7 +146,6 @@ app.post('/inserisci',function(req,res){
 
 });*/
 
-
 app.post('/logadmin',function(req,res){
     var c=0;
     var  s=0;
@@ -172,11 +158,6 @@ app.post('/logadmin',function(req,res){
         risultato = risultato + ' ' + lista[t].Dipartimento + lista[t].nota  +  '\n ';
         t++;
     }
-
-
-
-
-
     while(c<amministratori.length){
 
         if(nome == amministratori[c].nomeutente && pasword == amministratori[c].pasword){
@@ -192,9 +173,6 @@ app.post('/logadmin',function(req,res){
     if(s==0){
     res.sendFile(__dirname + '/utenten.html');
     }
-
-  
-  
 });
 
 app.set('port', (process.env.PORT || 5000));
@@ -202,7 +180,3 @@ app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), function() {
     console.log('Node app is running on port', app.get('port'));
 });
-
-
-
-
