@@ -108,7 +108,7 @@ app.post('/inserisci',function(req,res){
             service: 'gmail',
             auth: {
                    user: 'elvis.nazifi94@gmail.com',
-                   pass: 'avrillavigne1'
+                   pass: ''
                }
            });
         
